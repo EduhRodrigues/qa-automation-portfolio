@@ -1,4 +1,4 @@
-## QA Automation Portfolio
+# QA Automation Portfolio
 
 Projeto de automação de testes End-to-End (E2E) desenvolvido com Cypress para demonstrar conhecimentos em Quality Assurance (QA), automação de testes e boas práticas de desenvolvimento.
 
@@ -49,18 +49,18 @@ https://front.serverest.dev/login
 
 ## CT-001 - Deve realizar login com sucesso
 
-**Objetivo**
+## Objetivo
 
 Validar que um usuário com credenciais válidas consegue acessar a área autenticada do sistema.
 
-##Passos##
+## Passos
 
 1. Acessar a página de login.
 2. Informar email válido.
 3. Informar senha válida.
 4. Clicar no botão Entrar.
 
-##Validações##
+## Validações
 
 * Redirecionamento para `/home`
 * Exibição do texto `Serverest Store`
