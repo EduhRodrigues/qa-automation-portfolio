@@ -66,7 +66,7 @@ Validar que um usuário com credenciais válidas consegue acessar a área autent
 * Exibição do texto `Serverest Store`
 * Login realizado com sucesso
 
-CT-002 - Deve exibir mensagem de erro ao informar senha inválida
+### CT-002 - Deve exibir mensagem de erro ao informar senha inválida
 
 **Objetivo**
 
