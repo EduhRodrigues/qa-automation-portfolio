@@ -252,12 +252,39 @@ Validar que usuários não autenticados não conseguem acessar áreas protegidas
 
 ## Estrutura do Projeto
 
-```text
-cypress/
-├── e2e/
-├── fixtures/
-└── support/
-```
+qa-automation-portfolio/
+├── cypress/
+│   ├── e2e/
+│   │   └── login.cy.js
+│   ├── fixtures/
+│   │   └── usuarios.json
+│   └── support/
+│       ├── commands.js
+│       └── e2e.js
+├── node_modules/
+├── .gitignore
+├── cypress.config.js
+├── package.json
+├── package-lock.json
+└── README.md
+
+## Custom Commands
+
+| Comando | Descrição |
+|----------|-----------|
+| `cy.login(email, senha)` | Realiza login na aplicação |
+| `cy.logout()` | Realiza logout da aplicação |
+
+## Descrição dos Diretórios
+
+| Diretório / Arquivo | Descrição |
+|---------------------|-----------|
+| `cypress/e2e` | Contém os testes automatizados End-to-End |
+| `cypress/fixtures` | Massa de dados utilizada nos testes |
+| `cypress/support/commands.js` | Custom Commands reutilizáveis (login e logout) |
+| `cypress/support/e2e.js` | Configurações globais do Cypress |
+| `cypress.config.js` | Arquivo principal de configuração do Cypress |
+| `README.md` | Documentação do projeto |
 
 ## Como Executar
 
