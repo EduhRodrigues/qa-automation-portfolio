@@ -53,8 +53,6 @@ Módulo automatizado atualmente:
 
 ## Estrutura do Projeto
 
-## Estrutura do Projeto
-
 ```text
 qa-automation-portfolio/
 ├── cypress/
