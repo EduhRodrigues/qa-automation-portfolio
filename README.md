@@ -27,7 +27,7 @@ https://front.serverest.dev/login
 * [x] CT-007 - Deve exibir mensagem ao tentar login sem preencher email e senha
 * [x] CT-008 - Deve impedir login com email em formato inválido
 * [x] CT-009 - Deve realizar logout com sucesso
-* [ ] CT-010 - Deve impedir acesso à área autenticada sem login
+* [x] CT-010 - Deve impedir acesso à área autenticada sem login
 
 ## Módulo de Produtos
 
