@@ -19,7 +19,7 @@ https://front.serverest.dev/login
 ### Módulo de Autenticação
 
 * [x] CT-001 - Deve realizar login com sucesso
-* [ ] CT-002 - Não deve realizar login com senha inválida
+* [x] CT-002 - Não deve realizar login com senha inválida
 * [ ] CT-003 - Não deve realizar login com email inexistente
 * [ ] CT-004 - Deve validar campo de email obrigatório
 * [ ] CT-005 - Deve validar campo de senha obrigatório
