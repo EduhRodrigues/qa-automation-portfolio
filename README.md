@@ -66,6 +66,26 @@ Validar que um usuário com credenciais válidas consegue acessar a área autent
 * Exibição do texto `Serverest Store`
 * Login realizado com sucesso
 
+CT-002 - Deve exibir mensagem de erro ao informar senha inválida
+
+**Objetivo**
+
+Validar que o sistema impede o acesso quando um usuário informa uma senha incorreta.
+
+**Passos**
+
+1. Acessar a página de login.
+2. Informar email válido.
+3. Informar senha inválida.
+4. Clicar no botão Entrar.
+
+**Validações**
+
+* Permanência na página de login (/login)
+* Exibição da mensagem "Email e/ou senha inválidos"
+* Login não realizado
+
+
 ## Estrutura do Projeto
 
 ```text
