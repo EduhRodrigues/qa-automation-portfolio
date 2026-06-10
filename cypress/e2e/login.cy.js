@@ -227,4 +227,36 @@ describe('Login', () => {
 
    })
   })
+
+ it('CT-009 - Deve realizar logout com sucesso', () => {
+
+  cy.fixture('usuarios').then((usuarios) => {
+
+    const usuario = usuarios.usuarioValido
+
+    cy.login(usuario.email, usuario.senha)
+
+    cy.url()
+      .should('include', '/home')
+
+    cy.logout()
+
+    cy.url()
+      .should('include', '/login')
+
+    cy.contains('Login')
+      .should('be.visible')
+  })
+  })
+
+it('CT-010 - Deve impedir acesso à área autenticada sem login', () => {
+
+  cy.visit('https://front.serverest.dev/home')
+
+  cy.url()
+    .should('include', '/login')
+
+  cy.contains('Login')
+    .should('be.visible')
+})
 })

@@ -19,14 +19,14 @@ https://front.serverest.dev/login
 ## Módulo de Autenticação
 
 * [x] CT-001 - Deve realizar login com sucesso
-* [x] CT-002 - Não deve realizar login com senha inválida
-* [x] CT-003 - Não deve realizar login com email inexistente
-* [x] CT-004 - Deve validar campo de email obrigatório
-* [x] CT-005 - Deve validar campo de senha obrigatório
-* [x] CT-006 - Deve validar campos vazios
-* [x] CT-007 - Deve validar formato de email inválido
-* [x] CT-008 - Deve realizar login utilizando a tecla Enter
-* [ ] CT-009 - Deve realizar logout com sucesso
+* [x] CT-002 - Deve exibir mensagem de erro ao informar senha inválida
+* [x] CT-003 - Deve exibir mensagem de erro ao informar email inválido
+* [x] CT-004 - Deve exibir mensagem de erro ao informar email e senha inválidos
+* [x] CT-005 - Deve exibir mensagem ao tentar login sem preencher email
+* [x] CT-006 - Deve exibir mensagem ao tentar login sem preencher senha
+* [x] CT-007 - Deve exibir mensagem ao tentar login sem preencher email e senha
+* [x] CT-008 - Deve impedir login com email em formato inválido
+* [x] CT-009 - Deve realizar logout com sucesso
 * [ ] CT-010 - Deve impedir acesso à área autenticada sem login
 
 ## Módulo de Produtos
@@ -212,6 +212,42 @@ Validar que o navegador impede o envio do formulário quando o email está em fo
 - Exibição da mensagem nativa de validação do navegador
 - Formulário não enviado
 - Permanência na página de login
+
+## CT-009 - Deve realizar logout com sucesso
+
+##Objetivo
+
+Validar que um usuário autenticado consegue encerrar sua sessão e retornar para a tela de login.
+
+## Passos
+
+1. Realizar login com credenciais válidas.
+2. Validar acesso à área autenticada.
+3. Clicar no botão Logout.
+4. Aguardar o redirecionamento.
+
+## Validações
+
+* Redirecionamento para `/login`
+* Exibição da tela de login
+* Encerramento da sessão do usuário
+
+## CT-010 - Deve impedir acesso à área autenticada sem login
+
+## Objetivo
+
+Validar que usuários não autenticados não conseguem acessar áreas protegidas da aplicação.
+
+## Passos
+
+1. Acessar diretamente a URL `/home` sem realizar login.
+2. Aguardar o comportamento da aplicação.
+
+## Validações
+
+* Redirecionamento automático para `/login`
+* Exibição da tela de login
+* Bloqueio de acesso à área autenticada
 
 
 ## Estrutura do Projeto
