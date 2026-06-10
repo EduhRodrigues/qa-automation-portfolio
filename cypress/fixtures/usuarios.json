@@ -7,5 +7,30 @@
     "usuarioSenhaInvalida": {
         "email": "email_teste@gmail.com",
         "senha": "senha_incorreta"
-    }
+    },
+
+    "usuarioEmailInvalido": {
+        "email": "email_invalido@gmail.com",
+        "senha": "senha_teste"
+    },
+
+    "usuarioInvalido": {
+        "email": "email_invalido@gmail.com",
+        "senha": "senha_incorreta"
+    },
+
+    "usuarioSemEmail": {
+        "email": "",
+        "senha": "senha_teste"
+    },
+
+    "usuarioSemSenha": {
+        "email": "email_teste@gmail.com",
+        "senha": ""
+    },
+
+    "usuarioEmailFormatoInvalido": {
+    "email": "abc123",
+    "senha": "senha_teste"
+}
 }
