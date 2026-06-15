@@ -1,0 +1,8 @@
+{
+  "produtoValido": {
+    "nome": "Mouse Gamer QA",
+    "preco": "150",
+    "descricao": "Produto criado via automacao Cypress",
+    "quantidade": "10"
+  }
+}
