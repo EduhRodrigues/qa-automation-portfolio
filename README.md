@@ -36,9 +36,31 @@ Módulo automatizado atualmente:
 * [x] CT-009 - Deve realizar logout com sucesso
 * [x] CT-010 - Deve impedir acesso à área autenticada sem login
 
+### Módulo de Produtos
+
+* [ ] CT-011 - Deve cadastrar produto com sucesso
+* [ ] CT-012 - Deve exibir mensagem ao tentar cadastrar produto sem nome
+* [ ] CT-013 - Deve exibir mensagem ao tentar cadastrar produto sem preço
+* [ ] CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descrição
+* [ ] CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade
+* [ ] CT-016 - Deve impedir cadastro de produto com nome já existente
+* [ ] CT-017 - Deve validar preço igual a zero
+* [ ] CT-018 - Deve validar quantidade igual a zero
+* [ ] CT-019 - Deve validar preço com caracteres não numéricos
+* [ ] CT-020 - Deve validar quantidade com caracteres não numéricos
+* [ ] CT-021 - Deve cadastrar produto com nome contendo caracteres especiais
+* [ ] CT-022 - Deve cadastrar produto com descrição extensa
+* [ ] CT-023 - Deve exibir produto recém-cadastrado na listagem
+* [ ] CT-024 - Deve localizar produto através da busca
+* [ ] CT-025 - Deve exibir detalhes do produto cadastrado
+* [ ] CT-026 - Deve editar produto com sucesso
+* [ ] CT-027 - Deve refletir alterações após edição do produto
+* [ ] CT-028 - Deve excluir produto com sucesso
+* [ ] CT-029 - Deve remover produto da listagem após exclusão
+* [ ] CT-030 - Deve impedir acesso ao cadastro de produtos sem autenticação
+
 ### Próximos Módulos
 
-* [ ] Produtos
 * [ ] Carrinho
 * [ ] Checkout
 * [ ] API Testing
@@ -55,28 +77,69 @@ Módulo automatizado atualmente:
 
 ```text
 qa-automation-portfolio/
+│
 ├── cypress/
+│   │
 │   ├── e2e/
-│   │   └── login.cy.js
+│   │   ├── login.cy.js
+│   │   └── produtos.cy.js
+│   │
 │   ├── fixtures/
-│   │   └── usuarios.json
+│   │   ├── usuarios.json
+│   │   └── produtos.json
+│   │
 │   └── support/
 │       ├── commands.js
 │       └── e2e.js
+│
+├── docs/
+│   └── matriz-testes-produtos.md
+│
 ├── .gitignore
 ├── cypress.config.js
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
 
-Próxima evolução:
+### Próxima evolução
 
+```text
 e2e/
 ├── login.cy.js
 ├── produtos.cy.js
 ├── carrinho.cy.js
-└── checkout.cy.js
+├── checkout.cy.js
+└── api-produtos.cy.js
+
+fixtures/
+├── usuarios.json
+├── produtos.json
+└── carrinho.json
+
+docs/
+├── matriz-testes-produtos.md
+├── matriz-testes-carrinho.md
+└── matriz-testes-checkout.md
 ```
+
+## Status Atual
+
+### Concluído
+- ✅ Módulo de Autenticação
+- ✅ 10 Casos de Teste Automatizados
+- ✅ Custom Commands
+- ✅ Massa de Dados (Fixtures)
+- ✅ Matriz de Casos de Teste - Produtos
+
+### Em Desenvolvimento
+- 🔄 Automação E2E - Produtos
+
+### Próximos Módulos
+- 📦 Produtos
+- 🛒 Carrinho
+- 💳 Checkout
+- 🔌 API Testing
 
 ## Custom Commands
 
@@ -94,16 +157,13 @@ e2e/
 | `commands.js`       | Comandos reutilizáveis de login e logout         |
 | `cypress.config.js` | Configuração principal do Cypress                |
 
-## Roadmap
+## Próximos Módulos
 
-Próximas implementações:
-
-- [ ] Módulo de Produtos
-- [ ] Módulo de Carrinho
-- [ ] Módulo de Checkout
-- [ ] Testes de API
-- [ ] Integração com GitHub Actions
-- [ ] Relatórios automatizados
+- [x] Planejamento de testes - Produtos
+- [ ] Automação E2E - Produtos
+- [ ] Carrinho
+- [ ] Checkout
+- [ ] API Testing
 
 ## Como Executar
 
