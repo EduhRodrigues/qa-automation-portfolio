@@ -43,7 +43,7 @@ Módulo automatizado atualmente:
 * [ ] CT-013 - Deve exibir mensagem ao tentar cadastrar produto sem preço
 * [ ] CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descrição
 * [ ] CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade
-* [ ] CT-016 - Deve impedir cadastro de produto com nome já existente
+* [ ] CT-016 - Deve cadastrar produto com sucesso sem imagem
 * [ ] CT-017 - Deve validar preço igual a zero
 * [ ] CT-018 - Deve validar quantidade igual a zero
 * [ ] CT-019 - Deve validar preço com caracteres não numéricos

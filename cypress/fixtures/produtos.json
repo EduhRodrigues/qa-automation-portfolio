@@ -11,13 +11,31 @@
     "nome": null,
     "preco": "150",
     "descricao": "Produto criado via automacao Cypress",
-    "quantidade": "10"
+    "quantidade": "10",
+    "imagem": "cypress/fixtures/produto.jpg"
 },
 
   "produtoSemPreco": {
     "nome": "Mouse Gamer QA",
     "preco": null,
     "descricao": "Produto criado via automacao Cypress",
-    "quantidade": "10"
-  }
+    "quantidade": "10",
+    "imagem": "cypress/fixtures/produto.jpg"
+  },
+
+  "produtoSemDescricao": {
+  "nome": "Mouse Gamer QA",
+  "preco": "150",
+  "descricao": null,
+  "quantidade": "10",
+  "imagem": "cypress/fixtures/produto.jpg"
+},
+
+"produtoSemQuantidade": {
+  "nome": "Mouse Gamer QA",
+  "preco": "150",
+  "descricao": "Produto criado via automacao Cypress",
+  "quantidade": null,
+  "imagem": "cypress/fixtures/produto.jpg"
+}
 }

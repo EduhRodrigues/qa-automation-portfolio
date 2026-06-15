@@ -46,6 +46,47 @@ describe('Produtos', () => {
       .should('be.visible')
 
   })
+})
 
+it('CT-013 - Deve exibir mensagem ao tentar cadastrar produto sem preco', () => {
+
+  cy.fixture('produtos').then(({ produtoSemPreco }) => {
+
+    cy.acessarCadastroProdutos()
+
+    cy.cadastrarProduto(produtoSemPreco)
+
+    cy.contains('Preco é obrigatório')
+      .should('be.visible')
+
+  })
+})
+
+it('CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descricao', () => {
+
+  cy.fixture('produtos').then(({ produtoSemDescricao }) => {
+
+    cy.acessarCadastroProdutos()
+
+    cy.cadastrarProduto(produtoSemDescricao)
+
+    cy.contains('Descricao é obrigatório')
+      .should('be.visible')
+
+  })
+})
+
+it('CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade', () => {
+
+  cy.fixture('produtos').then(({ produtoSemQuantidade }) => {
+
+    cy.acessarCadastroProdutos()
+
+    cy.cadastrarProduto(produtoSemQuantidade)
+
+    cy.contains('Quantidade é obrigatório')
+      .should('be.visible')
+
+  })
 })
 })
