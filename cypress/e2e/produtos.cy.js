@@ -19,12 +19,14 @@ describe('Produtos', () => {
 
       const nomeProduto = `${dados.produtoValido.nome} ${Date.now()}`
 
-      cy.cadastrarProduto({
+      cy.acessarCadastroProdutos()
+
+        cy.cadastrarProduto({
         nome: nomeProduto,
         preco: dados.produtoValido.preco,
         descricao: dados.produtoValido.descricao,
         quantidade: dados.produtoValido.quantidade
-      })
+        })
 
       cy.url()
         .should('include', '/admin/listarprodutos')

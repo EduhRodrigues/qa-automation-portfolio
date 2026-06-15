@@ -23,10 +23,14 @@ Cypress.Commands.add('logout', () => {
 
 })
 
-Cypress.Commands.add('cadastrarProduto', (produto) => {
+Cypress.Commands.add('acessarCadastroProdutos', () => {
 
   cy.get('[data-testid="cadastrarProdutos"]')
     .click()
+
+})
+
+Cypress.Commands.add('cadastrarProduto', (produto) => {
 
   cy.get('[data-testid="nome"]')
     .type(produto.nome)
