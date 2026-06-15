@@ -89,4 +89,28 @@ it('CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade', (
 
   })
 })
+
+it('CT-016 - Deve cadastrar produto com sucesso sem imagem', () => {
+
+  cy.fixture('produtos').then(({ produtoSemImagem }) => {
+
+    const nomeProduto = `${produtoSemImagem.nome} ${Date.now()}`
+
+    cy.acessarCadastroProdutos()
+
+    cy.cadastrarProduto({
+      nome: nomeProduto,
+      preco: produtoSemImagem.preco,
+      descricao: produtoSemImagem.descricao,
+      quantidade: produtoSemImagem.quantidade
+    })
+
+    cy.url()
+      .should('include', '/admin/listarprodutos')
+
+    cy.contains(nomeProduto)
+      .should('be.visible')
+
+  })
+})
 })

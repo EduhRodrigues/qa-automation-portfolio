@@ -39,11 +39,11 @@ Módulo automatizado atualmente:
 ### Módulo de Produtos
 
 * [x] CT-011 - Deve cadastrar produto com sucesso
-* [ ] CT-012 - Deve exibir mensagem ao tentar cadastrar produto sem nome
-* [ ] CT-013 - Deve exibir mensagem ao tentar cadastrar produto sem preço
-* [ ] CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descrição
-* [ ] CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade
-* [ ] CT-016 - Deve cadastrar produto com sucesso sem imagem
+* [x] CT-012 - Deve exibir mensagem ao tentar cadastrar produto sem nome
+* [x] CT-013 - Deve exibir mensagem ao tentar cadastrar produto sem preço
+* [x] CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descrição
+* [x] CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade
+* [x] CT-016 - Deve cadastrar produto com sucesso sem imagem
 * [ ] CT-017 - Deve validar preço igual a zero
 * [ ] CT-018 - Deve validar quantidade igual a zero
 * [ ] CT-019 - Deve validar preço com caracteres não numéricos
@@ -69,13 +69,17 @@ Módulo automatizado atualmente:
 
 * Uso de massa de dados centralizada com Fixtures
 * Reutilização de código através de Custom Commands
-* Separação entre dados e lógica de teste
-* Nomenclatura padronizada para casos de teste
-* Estrutura preparada para expansão por módulos
+* Separação entre dados de teste e lógica de automação
+* Nomenclatura padronizada para casos de teste (CT-001, CT-002...)
+* Estrutura modular preparada para expansão do projeto
+* Geração dinâmica de dados para evitar conflitos entre execuções
+* Cobertura de cenários positivos e negativos
+* Validação de regras de negócio e mensagens de erro
+* Documentação das funcionalidades através de matrizes de teste
+* Organização dos testes seguindo princípios de manutenção e escalabilidade
 
 ## Estrutura do Projeto
 
-```text
 qa-automation-portfolio/
 │
 ├── cypress/
@@ -86,21 +90,28 @@ qa-automation-portfolio/
 │   │
 │   ├── fixtures/
 │   │   ├── usuarios.json
-│   │   └── produtos.json
+│   │   ├── produtos.json
+│   │   └── produto.jpg
+│   │
+│   ├── screenshots/
+│   │   └── login.cy.js
 │   │
 │   └── support/
 │       ├── commands.js
 │       └── e2e.js
 │
 ├── docs/
-│   └── matriz-testes-produtos.md
+│   ├── matriz-testes-produtos.md
+│   ├── matriz-testes-carrinho.md
+│   └── matriz-testes-checkout.md
+│
+├── node_modules/
 │
 ├── .gitignore
 ├── cypress.config.js
 ├── package.json
 ├── package-lock.json
 └── README.md
-```
 
 ### Próxima evolução
 
@@ -143,19 +154,28 @@ docs/
 
 ## Custom Commands
 
-| Comando                  | Descrição                   |
-| ------------------------ | --------------------------- |
-| `cy.login(email, senha)` | Realiza login na aplicação  |
-| `cy.logout()`            | Realiza logout da aplicação |
+| Comando                              | Finalidade |
+| ------------------------------------ | ---------- |
+| `cy.login(email, senha)`             | Centraliza o fluxo de autenticação de usuários |
+| `cy.logout()`                        | Centraliza o fluxo de encerramento de sessão |
+| `cy.acessarCadastroProdutos()`       | Navega até a tela de cadastro de produtos |
+| `cy.cadastrarProduto(produto)`       | Executa o preenchimento e envio do formulário de cadastro de produtos |
 
 ## Estrutura dos Arquivos
 
-| Arquivo             | Descrição                                        |
-| ------------------- | ------------------------------------------------ |
-| `login.cy.js`       | Cenários automatizados do módulo de autenticação |
-| `usuarios.json`     | Massa de dados utilizada nos testes              |
-| `commands.js`       | Comandos reutilizáveis de login e logout         |
-| `cypress.config.js` | Configuração principal do Cypress                |
+| Arquivo                         | Descrição |
+| ------------------------------- | --------- |
+| `cypress/e2e/login.cy.js`       | Cenários automatizados do módulo de autenticação |
+| `cypress/e2e/produtos.cy.js`    | Cenários automatizados do módulo de produtos |
+| `cypress/fixtures/usuarios.json`| Massa de dados dos testes de autenticação e usuários administrativos |
+| `cypress/fixtures/produtos.json`| Massa de dados dos cenários de produtos |
+| `cypress/fixtures/produto.jpg`  | Arquivo utilizado nos testes de upload de imagem |
+| `cypress/support/commands.js`   | Custom Commands reutilizáveis da aplicação |
+| `cypress/support/e2e.js`        | Configurações globais carregadas antes dos testes |
+| `docs/matriz-testes-produtos.md`| Matriz de casos de teste do módulo de produtos |
+| `docs/matriz-testes-carrinho.md`| Planejamento dos testes do módulo de carrinho |
+| `docs/matriz-testes-checkout.md`| Planejamento dos testes do módulo de checkout |
+| `cypress.config.js`             | Configuração principal do Cypress |
 
 ## Como Executar
 

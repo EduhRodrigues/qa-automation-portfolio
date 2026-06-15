@@ -37,5 +37,12 @@
   "descricao": "Produto criado via automacao Cypress",
   "quantidade": null,
   "imagem": "cypress/fixtures/produto.jpg"
+},
+
+"produtoSemImagem": {
+  "nome": "Mouse Gamer QA",
+  "preco": "150",
+  "descricao": "Produto criado sem imagem",
+  "quantidade": "10"
 }
 }
