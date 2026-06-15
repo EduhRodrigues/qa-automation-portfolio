@@ -1,11 +1,17 @@
 describe('Produtos', () => {
 
-  beforeEach(() => {
+ beforeEach(() => {
+
+  cy.fixture('usuarios').then(({ usuarioAdmin }) => {
+
     cy.login(
-      'teste.qa.admin@gmail.com',
-      'senha_teste_admin'
+      usuarioAdmin.email,
+      usuarioAdmin.senha
     )
+
   })
+
+})
 
   it('CT-011 - Deve cadastrar produto com sucesso', () => {
 
@@ -13,34 +19,19 @@ describe('Produtos', () => {
 
       const nomeProduto = `${dados.produtoValido.nome} ${Date.now()}`
 
-      cy.get('[data-testid="cadastrarProdutos"]')
-        .click()
-
-      cy.get('[data-testid="nome"]')
-        .type(nomeProduto)
-
-      cy.get('[data-testid="preco"]')
-        .type(dados.produtoValido.preco)
-
-      cy.get('[data-testid="descricao"]')
-        .type(dados.produtoValido.descricao)
-
-      cy.get('[data-testid="quantity"]')
-        .type(dados.produtoValido.quantidade)
-
-      cy.get('[data-testid="imagem"]')
-        .selectFile('cypress/fixtures/produto.jpg')
-
-      cy.get('[data-testid="cadastarProdutos"]')
-        .scrollIntoView()
-        .click()
+      cy.cadastrarProduto({
+        nome: nomeProduto,
+        preco: dados.produtoValido.preco,
+        descricao: dados.produtoValido.descricao,
+        quantidade: dados.produtoValido.quantidade
+      })
 
       cy.url()
-  .should('include', '/admin/listarprodutos')
+        .should('include', '/admin/listarprodutos')
 
-cy.get('tbody tr')
-  .should('have.length.greaterThan', 0)
-  
+      cy.contains(nomeProduto)
+        .should('be.visible')
+
     })
 
   })

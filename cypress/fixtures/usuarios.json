@@ -1,36 +1,41 @@
 {
-    "usuarioValido": {
-        "email": "email_teste@gmail.com",
-        "senha": "senha_teste"
-    },
+  "usuarioValido": {
+    "email": "email_teste@gmail.com",
+    "senha": "senha_teste"
+  },
 
-    "usuarioSenhaInvalida": {
-        "email": "email_teste@gmail.com",
-        "senha": "senha_incorreta"
-    },
+  "usuarioSenhaInvalida": {
+    "email": "email_teste@gmail.com",
+    "senha": "senha_incorreta"
+  },
 
-    "usuarioEmailInvalido": {
-        "email": "email_invalido@gmail.com",
-        "senha": "senha_teste"
-    },
+  "usuarioEmailInvalido": {
+    "email": "email_invalido@gmail.com",
+    "senha": "senha_teste"
+  },
 
-    "usuarioInvalido": {
-        "email": "email_invalido@gmail.com",
-        "senha": "senha_incorreta"
-    },
+  "usuarioInvalido": {
+    "email": "email_invalido@gmail.com",
+    "senha": "senha_incorreta"
+  },
 
-    "usuarioSemEmail": {
-        "email": "",
-        "senha": "senha_teste"
-    },
+  "usuarioSemEmail": {
+    "email": "",
+    "senha": "senha_teste"
+  },
 
-    "usuarioSemSenha": {
-        "email": "email_teste@gmail.com",
-        "senha": ""
-    },
+  "usuarioSemSenha": {
+    "email": "email_teste@gmail.com",
+    "senha": ""
+  },
 
-    "usuarioEmailFormatoInvalido": {
+  "usuarioEmailFormatoInvalido": {
     "email": "abc123",
     "senha": "senha_teste"
-}
+  },
+
+  "usuarioAdmin": {
+    "email": "teste.qa.admin@gmail.com",
+    "senha": "senha_teste_admin"
+  }
 }

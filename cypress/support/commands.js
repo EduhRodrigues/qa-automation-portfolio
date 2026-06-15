@@ -22,3 +22,28 @@ Cypress.Commands.add('logout', () => {
     .click()
 
 })
+
+Cypress.Commands.add('cadastrarProduto', (produto) => {
+
+  cy.get('[data-testid="cadastrarProdutos"]')
+    .click()
+
+  cy.get('[data-testid="nome"]')
+    .type(produto.nome)
+
+  cy.get('[data-testid="preco"]')
+    .type(produto.preco)
+
+  cy.get('[data-testid="descricao"]')
+    .type(produto.descricao)
+
+  cy.get('[data-testid="quantity"]')
+    .type(produto.quantidade)
+
+  cy.get('[data-testid="imagem"]')
+    .selectFile('cypress/fixtures/produto.jpg')
+
+  cy.get('[data-testid="cadastarProdutos"]')
+    .click()
+
+})
