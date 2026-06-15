@@ -8,9 +8,7 @@ describe('Produtos', () => {
       usuarioAdmin.email,
       usuarioAdmin.senha
     )
-
   })
-
 })
 
   it('CT-011 - Deve cadastrar produto com sucesso', () => {
@@ -21,21 +19,33 @@ describe('Produtos', () => {
 
       cy.acessarCadastroProdutos()
 
-        cy.cadastrarProduto({
+      cy.cadastrarProduto({
         nome: nomeProduto,
         preco: dados.produtoValido.preco,
         descricao: dados.produtoValido.descricao,
         quantidade: dados.produtoValido.quantidade
-        })
+    })
 
       cy.url()
         .should('include', '/admin/listarprodutos')
 
       cy.contains(nomeProduto)
         .should('be.visible')
-
     })
+  })
+
+  it('CT-012 - Deve exibir mensagem ao tentar cadastrar produto sem nome', () => {
+
+  cy.fixture('produtos').then(({ produtoSemNome }) => {
+
+    cy.acessarCadastroProdutos()
+
+    cy.cadastrarProduto(produtoSemNome)
+
+    cy.contains('Nome é obrigatório')
+      .should('be.visible')
 
   })
 
+})
 })

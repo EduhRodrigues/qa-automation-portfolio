@@ -32,20 +32,30 @@ Cypress.Commands.add('acessarCadastroProdutos', () => {
 
 Cypress.Commands.add('cadastrarProduto', (produto) => {
 
-  cy.get('[data-testid="nome"]')
-    .type(produto.nome)
+  if (produto.nome) {
+    cy.get('[data-testid="nome"]')
+      .type(produto.nome)
+  }
 
-  cy.get('[data-testid="preco"]')
-    .type(produto.preco)
+  if (produto.preco) {
+    cy.get('[data-testid="preco"]')
+      .type(produto.preco)
+  }
 
-  cy.get('[data-testid="descricao"]')
-    .type(produto.descricao)
+  if (produto.descricao) {
+    cy.get('[data-testid="descricao"]')
+      .type(produto.descricao)
+  }
 
-  cy.get('[data-testid="quantity"]')
-    .type(produto.quantidade)
+  if (produto.quantidade) {
+    cy.get('[data-testid="quantity"]')
+      .type(produto.quantidade)
+  }
 
-  cy.get('[data-testid="imagem"]')
-    .selectFile('cypress/fixtures/produto.jpg')
+  if (produto.imagem) {
+    cy.get('[data-testid="imagem"]')
+      .selectFile(produto.imagem)
+  }
 
   cy.get('[data-testid="cadastarProdutos"]')
     .click()
