@@ -157,14 +157,6 @@ docs/
 | `commands.js`       | Comandos reutilizáveis de login e logout         |
 | `cypress.config.js` | Configuração principal do Cypress                |
 
-## Próximos Módulos
-
-- [x] Planejamento de testes - Produtos
-- [ ] Automação E2E - Produtos
-- [ ] Carrinho
-- [ ] Checkout
-- [ ] API Testing
-
 ## Como Executar
 
 ```bash
