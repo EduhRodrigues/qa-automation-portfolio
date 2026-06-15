@@ -38,7 +38,7 @@ Módulo automatizado atualmente:
 
 ### Módulo de Produtos
 
-* [ ] CT-011 - Deve cadastrar produto com sucesso
+* [x] CT-011 - Deve cadastrar produto com sucesso
 * [ ] CT-012 - Deve exibir mensagem ao tentar cadastrar produto sem nome
 * [ ] CT-013 - Deve exibir mensagem ao tentar cadastrar produto sem preço
 * [ ] CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descrição
