@@ -44,5 +44,33 @@
   "preco": "150",
   "descricao": "Produto criado sem imagem",
   "quantidade": "10"
+},
+
+"produtoPrecoZero": {
+  "nome": "Produto Preco Zero",
+  "preco": "0",
+  "descricao": "Teste preco zero",
+  "quantidade": "10"
+},
+
+  "produtoQuantidadeZero": {
+    "nome": "Produto Quantidade Zero",
+    "preco": "100",
+    "descricao": "Teste quantidade zero",
+    "quantidade": "0"
+  },
+
+  "produtoNomeEspecial": {
+  "nome": "Mouse Gamer QA @#$%&*",
+  "preco": "150",
+  "descricao": "Produto com caracteres especiais",
+  "quantidade": "10"
+},
+
+"produtoDescricaoExtensa": {
+  "nome": "Produto Descricao Longa",
+  "preco": "150",
+  "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "quantidade": "10"
 }
 }

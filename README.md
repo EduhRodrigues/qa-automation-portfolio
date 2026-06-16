@@ -44,20 +44,24 @@ Módulo automatizado atualmente:
 * [x] CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descrição
 * [x] CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade
 * [x] CT-016 - Deve cadastrar produto com sucesso sem imagem
-* [ ] CT-017 - Deve validar preço igual a zero
-* [ ] CT-018 - Deve validar quantidade igual a zero
-* [ ] CT-019 - Deve validar preço com caracteres não numéricos
-* [ ] CT-020 - Deve validar quantidade com caracteres não numéricos
-* [ ] CT-021 - Deve cadastrar produto com nome contendo caracteres especiais
-* [ ] CT-022 - Deve cadastrar produto com descrição extensa
-* [ ] CT-023 - Deve exibir produto recém-cadastrado na listagem
-* [ ] CT-024 - Deve localizar produto através da busca
-* [ ] CT-025 - Deve exibir detalhes do produto cadastrado
-* [ ] CT-026 - Deve editar produto com sucesso
-* [ ] CT-027 - Deve refletir alterações após edição do produto
-* [ ] CT-028 - Deve excluir produto com sucesso
-* [ ] CT-029 - Deve remover produto da listagem após exclusão
-* [ ] CT-030 - Deve impedir acesso ao cadastro de produtos sem autenticação
+* [x] CT-017 - Deve validar preço igual a zero
+* [x] CT-018 - Deve permitir cadastro com quantidade igual a zero
+* [x] CT-019 - Deve aceitar apenas números no campo preço
+* [x] CT-020 - Deve impedir cadastro com caractere não numérico na quantidade
+* [x] CT-021 - Deve cadastrar produto com nome contendo caracteres especiais
+* [x] CT-022 - Deve cadastrar produto com descrição extensa
+* [x] CT-023 - Deve exibir produto recém-cadastrado na listagem
+* [NA] CT-024 - Deve localizar produto através da busca.
+Motivo: a tela de listagem de produtos não possui funcionalidade de busca.
+* [NA] CT-025 - Deve exibir detalhes do produto cadastrado
+Motivo: funcionalidade não implementada na aplicação.
+* [NA] CT-026 - Deve editar produto com sucesso
+Motivo: botão Editar não executa nenhuma ação.
+* [NA] CT-027 - Deve refletir alterações após edição do produto
+Dependente da funcionalidade de edição.
+* [x] CT-028 - Deve excluir produto com sucesso
+* [x] CT-029 - Deve remover produto da listagem após exclusão
+* [x] CT-030 - Deve impedir acesso ao cadastro de produtos sem autenticação
 
 ### Próximos Módulos
 
@@ -67,23 +71,23 @@ Módulo automatizado atualmente:
 
 ## Boas Práticas Aplicadas
 
-* Uso de massa de dados centralizada com Fixtures
+* Uso de Fixtures para centralização das massas de teste
 * Reutilização de código através de Custom Commands
 * Separação entre dados de teste e lógica de automação
-* Nomenclatura padronizada para casos de teste (CT-001, CT-002...)
-* Estrutura modular preparada para expansão do projeto
-* Geração dinâmica de dados para evitar conflitos entre execuções
-* Cobertura de cenários positivos e negativos
-* Validação de regras de negócio e mensagens de erro
-* Documentação das funcionalidades através de matrizes de teste
-* Organização dos testes seguindo princípios de manutenção e escalabilidade
+* Geração dinâmica de dados para evitar duplicidade de registros
+* Organização dos cenários por módulo funcional
+* Uso de BeforeEach para autenticação dos cenários protegidos
+* Validação positiva e negativa das funcionalidades
+* Estrutura preparada para escalabilidade e manutenção
+* Documentação dos bugs encontrados durante a execução dos testes
+* Utilização de seletores estáveis com data-testid
 
 ## Estrutura do Projeto
 
 qa-automation-portfolio/
-│
+
 ├── cypress/
-│   │
+│
 │   ├── e2e/
 │   │   ├── login.cy.js
 │   │   └── produtos.cy.js
@@ -93,9 +97,6 @@ qa-automation-portfolio/
 │   │   ├── produtos.json
 │   │   └── produto.jpg
 │   │
-│   ├── screenshots/
-│   │   └── login.cy.js
-│   │
 │   └── support/
 │       ├── commands.js
 │       └── e2e.js
@@ -103,9 +104,8 @@ qa-automation-portfolio/
 ├── docs/
 │   ├── matriz-testes-produtos.md
 │   ├── matriz-testes-carrinho.md
-│   └── matriz-testes-checkout.md
-│
-├── node_modules/
+│   ├── matriz-testes-checkout.md
+│   └── bug-report.md
 │
 ├── .gitignore
 ├── cypress.config.js
@@ -137,17 +137,34 @@ docs/
 ## Status Atual
 
 ### Concluído
+
 - ✅ Módulo de Autenticação
-- ✅ 10 Casos de Teste Automatizados
+- ✅ Módulo de Produtos
+- ✅ 20 Casos de Teste Automatizados
 - ✅ Custom Commands
 - ✅ Massa de Dados (Fixtures)
 - ✅ Matriz de Casos de Teste - Produtos
+- ✅ Documentação de Bugs Encontrados
+- ✅ Controle de Acesso por Autenticação
+- ✅ Validações Positivas e Negativas
+- ✅ Estrutura Escalável para Novos Módulos
+
+### Em andamento
+
+- 🔄 Módulo de Carrinho
+- 🔄 Módulo de Checkout
+
+### Não automatizados devido a limitações da aplicação
+
+- ⚠️ CT-024 - Localizar produto através da busca (funcionalidade inexistente)
+- ⚠️ CT-025 - Exibir detalhes do produto cadastrado (funcionalidade inexistente)
+- ⚠️ CT-026 - Editar produto com sucesso (botão Editar não funciona)
+- ⚠️ CT-027 - Refletir alterações após edição do produto (dependente da funcionalidade de edição)
 
 ### Em Desenvolvimento
 - 🔄 Automação E2E - Produtos
 
 ### Próximos Módulos
-- 📦 Produtos
 - 🛒 Carrinho
 - 💳 Checkout
 - 🔌 API Testing
@@ -163,19 +180,15 @@ docs/
 
 ## Estrutura dos Arquivos
 
-| Arquivo                         | Descrição |
-| ------------------------------- | --------- |
-| `cypress/e2e/login.cy.js`       | Cenários automatizados do módulo de autenticação |
-| `cypress/e2e/produtos.cy.js`    | Cenários automatizados do módulo de produtos |
-| `cypress/fixtures/usuarios.json`| Massa de dados dos testes de autenticação e usuários administrativos |
-| `cypress/fixtures/produtos.json`| Massa de dados dos cenários de produtos |
-| `cypress/fixtures/produto.jpg`  | Arquivo utilizado nos testes de upload de imagem |
-| `cypress/support/commands.js`   | Custom Commands reutilizáveis da aplicação |
-| `cypress/support/e2e.js`        | Configurações globais carregadas antes dos testes |
-| `docs/matriz-testes-produtos.md`| Matriz de casos de teste do módulo de produtos |
-| `docs/matriz-testes-carrinho.md`| Planejamento dos testes do módulo de carrinho |
-| `docs/matriz-testes-checkout.md`| Planejamento dos testes do módulo de checkout |
-| `cypress.config.js`             | Configuração principal do Cypress |
+| Arquivo | Descrição |
+|----------|----------|
+| login.cy.js | Testes automatizados do módulo de autenticação |
+| produtos.cy.js | Testes automatizados do módulo de produtos |
+| usuarios.json | Massa de dados dos testes de autenticação |
+| produtos.json | Massa de dados dos testes de produtos |
+| commands.js | Custom Commands reutilizáveis |
+| cypress.config.js | Configuração principal do Cypress |
+| bug-report.md | Registro dos defeitos encontrados |
 
 ## Como Executar
 
