@@ -2,95 +2,86 @@
 
 ![Cypress](https://img.shields.io/badge/Cypress-E2E-green)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue)
+![Status](https://img.shields.io/badge/Status-In%20Progress-blue)
 
-Projeto de automação de testes End-to-End (E2E) desenvolvido com Cypress para demonstrar conhecimentos em Quality Assurance (QA), automação de testes, organização de código e boas práticas de desenvolvimento.
+Projeto de automação de testes End-to-End (E2E) desenvolvido com **Cypress**, com foco em demonstrar conhecimentos em **Quality Assurance (QA)**, automação de testes, organização de código, controle de acesso e boas práticas de desenvolvimento.
 
-## Tecnologias
+---
+
+# Tecnologias
 
 * Cypress
-* JavaScript
+* JavaScript (ES6)
 * Node.js
 
-## Sistema Testado
+---
 
-Aplicação utilizada para fins de estudo e automação:
+# Sistema Testado
+
+Aplicação utilizada para fins de estudo:
 
 https://front.serverest.dev/login
 
-Módulo automatizado atualmente:
-- Autenticação
+---
 
-## Casos de Teste
+# Cobertura Atual
 
-### Módulo de Autenticação
+## Administrador
 
-* [x] CT-001 - Deve realizar login com sucesso
-* [x] CT-002 - Deve exibir mensagem de erro ao informar senha inválida
-* [x] CT-003 - Deve exibir mensagem de erro ao informar email inválido
-* [x] CT-004 - Deve exibir mensagem de erro ao informar email e senha inválidos
-* [x] CT-005 - Deve exibir mensagem ao tentar login sem preencher email
-* [x] CT-006 - Deve exibir mensagem ao tentar login sem preencher senha
-* [x] CT-007 - Deve exibir mensagem ao tentar login sem preencher email e senha
-* [x] CT-008 - Deve impedir login com email em formato inválido
-* [x] CT-009 - Deve realizar logout com sucesso
-* [x] CT-010 - Deve impedir acesso à área autenticada sem login
+* ✅ Login
+* ✅ Logout
+* ✅ Gerenciamento de Produtos
+* ✅ Gerenciamento de Usuários
 
-### Módulo de Produtos
+## Usuário Comum
 
-* [x] CT-011 - Deve cadastrar produto com sucesso
-* [x] CT-012 - Deve exibir mensagem ao tentar cadastrar produto sem nome
-* [x] CT-013 - Deve exibir mensagem ao tentar cadastrar produto sem preço
-* [x] CT-014 - Deve exibir mensagem ao tentar cadastrar produto sem descrição
-* [x] CT-015 - Deve exibir mensagem ao tentar cadastrar produto sem quantidade
-* [x] CT-016 - Deve cadastrar produto com sucesso sem imagem
-* [x] CT-017 - Deve validar preço igual a zero
-* [x] CT-018 - Deve permitir cadastro com quantidade igual a zero
-* [x] CT-019 - Deve aceitar apenas números no campo preço
-* [x] CT-020 - Deve impedir cadastro com caractere não numérico na quantidade
-* [x] CT-021 - Deve cadastrar produto com nome contendo caracteres especiais
-* [x] CT-022 - Deve cadastrar produto com descrição extensa
-* [x] CT-023 - Deve exibir produto recém-cadastrado na listagem
-* [NA] CT-024 - Deve localizar produto através da busca.
-Motivo: a tela de listagem de produtos não possui funcionalidade de busca.
-* [NA] CT-025 - Deve exibir detalhes do produto cadastrado
-Motivo: funcionalidade não implementada na aplicação.
-* [NA] CT-026 - Deve editar produto com sucesso
-Motivo: botão Editar não executa nenhuma ação.
-* [NA] CT-027 - Deve refletir alterações após edição do produto
-Dependente da funcionalidade de edição.
-* [x] CT-028 - Deve excluir produto com sucesso
-* [x] CT-029 - Deve remover produto da listagem após exclusão
-* [x] CT-030 - Deve impedir acesso ao cadastro de produtos sem autenticação
+* 🔄 Login
+* 🔄 Pesquisa de Produtos
+* 🔄 Carrinho de Compras
+* 🔄 Controle de Acesso
 
-### Próximos Módulos
+---
 
-* [ ] Carrinho
-* [ ] Checkout
-* [ ] API Testing
+# Casos de Teste Automatizados
 
-## Boas Práticas Aplicadas
+| Módulo                   | Cobertura           |
+| ------------------------ | ------------------- |
+| Login                    | ✅ CT-001 ao CT-010  |
+| Produtos (Administrador) | ✅ CT-011 ao CT-030  |
+| Usuários (Administrador) | ✅ CT-031 ao CT-039  |
+| Usuário Comum            | 🔄 CT-043 ao CT-059 |
 
-* Uso de Fixtures para centralização das massas de teste
-* Reutilização de código através de Custom Commands
-* Separação entre dados de teste e lógica de automação
+---
+
+# Boas Práticas Aplicadas
+
+* Reutilização de código com Custom Commands
+* Centralização das massas de teste utilizando Fixtures
+* Separação entre dados e lógica de automação
 * Geração dinâmica de dados para evitar duplicidade de registros
-* Organização dos cenários por módulo funcional
-* Uso de BeforeEach para autenticação dos cenários protegidos
-* Validação positiva e negativa das funcionalidades
+* Organização dos testes por módulo funcional
+* Organização por perfil de usuário (Administrador e Usuário Comum)
+* Validação de cenários positivos e negativos
+* Controle de autenticação utilizando `beforeEach`
+* Utilização de seletores estáveis (`data-testid`)
+* Documentação dos bugs encontrados
 * Estrutura preparada para escalabilidade e manutenção
-* Documentação dos bugs encontrados durante a execução dos testes
-* Utilização de seletores estáveis com data-testid
 
-## Estrutura do Projeto
+---
 
+# Estrutura do Projeto
+
+```text
 qa-automation-portfolio/
 
 ├── cypress/
 │
 │   ├── e2e/
 │   │   ├── login.cy.js
-│   │   └── produtos.cy.js
+│   │   ├── logout.cy.js
+│   │   ├── produtos.cy.js
+│   │   ├── usuarios.cy.js
+│   │   └── usuario-comum.cy.js
 │   │
 │   ├── fixtures/
 │   │   ├── usuarios.json
@@ -102,131 +93,133 @@ qa-automation-portfolio/
 │       └── e2e.js
 │
 ├── docs/
+│   ├── matriz-testes-login.md
 │   ├── matriz-testes-produtos.md
-│   ├── matriz-testes-carrinho.md
-│   ├── matriz-testes-checkout.md
+│   ├── matriz-testes-usuarios.md
+│   ├── matriz-testes-usuario-comum.md
 │   └── bug-report.md
 │
-├── .gitignore
 ├── cypress.config.js
 ├── package.json
 ├── package-lock.json
 └── README.md
-
-### Próxima evolução
-
-```text
-e2e/
-├── login.cy.js
-├── produtos.cy.js
-├── usuarios.cy.js
-├── api-produtos.cy.js
-└── api-usuarios.cy.js
-
-fixtures/
-├── usuarios.json
-└── produtos.json
-
-docs/
-├── matriz-testes-login.md
-├── matriz-testes-produtos.md
-├── matriz-testes-usuarios.md
-└── bug-report.md
 ```
 
-Próximos módulos:
+---
 
-- API Testing
-- CI/CD
-- Relatórios Automatizados
+# Custom Commands
 
-## Status Atual
+| Comando                        | Finalidade                                               |
+| ------------------------------ | -------------------------------------------------------- |
+| `cy.login(email, senha)`       | Centraliza o fluxo de autenticação                       |
+| `cy.logout()`                  | Centraliza o fluxo de logout                             |
+| `cy.acessarCadastroProdutos()` | Navega para a tela de cadastro de produtos               |
+| `cy.cadastrarProduto(produto)` | Executa o cadastro de produtos                           |
+| `cy.acessarCadastroUsuarios()` | Navega para a tela de cadastro de usuários               |
+| `cy.cadastrarUsuario(usuario)` | Executa o cadastro de usuários comuns ou administradores |
 
-### Concluído
+---
 
-- ✅ Módulo de Autenticação
-- ✅ Módulo de Produtos
-- ✅ Mapeamento do Módulo de Usuários
-- ✅ 20 Casos de Teste Automatizados
-- ✅ Casos de Teste para Usuários Documentados
-- ✅ Custom Commands
-- ✅ Massa de Dados (Fixtures)
-- ✅ Matriz de Casos de Teste - Produtos
-- ✅ Matriz de Casos de Teste - Usuários
-- ✅ Documentação de Bugs Encontrados
-- ✅ Controle de Acesso por Autenticação
-- ✅ Validações Positivas e Negativas
-- ✅ Estrutura Escalável para Novos Módulos
-- ✅ Versionamento com Releases GitHub (v1.0.0 e v1.1.0)
+# Status Atual
 
-### Em Desenvolvimento
+## Concluído
 
-- 🔄 Automação E2E - Usuários
-- 🔄 Expansão da Cobertura de Testes
-- 🔄 Evolução da Documentação Técnica
+* ✅ Módulo Login
+* ✅ Módulo Logout
+* ✅ Módulo Produtos (Administrador)
+* ✅ Módulo Usuários (Administrador)
+* ✅ 39 Casos de Teste Automatizados
+* ✅ Matrizes de Casos de Teste
+* ✅ Custom Commands
+* ✅ Fixtures
+* ✅ Controle de Acesso por Autenticação
+* ✅ Validações Positivas e Negativas
+* ✅ Estrutura escalável para novos módulos
+* ✅ Documentação dos Bugs Encontrados
+* ✅ Versionamento Git
 
-### Não Automatizados devido a limitações da aplicação
+---
 
-- ⚠️ CT-024 - Localizar produto através da busca (funcionalidade inexistente)
-- ⚠️ CT-025 - Exibir detalhes do produto cadastrado (funcionalidade inexistente)
-- ⚠️ CT-026 - Editar produto com sucesso (botão Editar não funciona)
-- ⚠️ CT-027 - Refletir alterações após edição do produto (dependente da funcionalidade de edição)
-- ⚠️ Editar usuário (botão Editar não executa ação)
-- ⚠️ Busca de usuários (funcionalidade inexistente)
+## Em Desenvolvimento
 
-### Bugs Documentados
+* 🔄 Módulo Usuário Comum
+* 🔄 Ampliação da cobertura E2E
+* 🔄 API Testing
+* 🔄 CI/CD
+* 🔄 Relatórios Automatizados
 
-- 🐞 BUG-001 - Botão Editar Produto não executa ação
-- 🐞 BUG-002 - Busca de Produtos inexistente
-- 🐞 BUG-003 - Visualização de detalhes do produto inexistente
-- 🐞 BUG-004 - Botão Editar Usuário não executa ação
-- 🐞 BUG-005 - Busca de Usuários inexistente
-- 🐞 BUG-006 - Primeiro usuário da lista não pode ser excluído
+---
 
-### Próximos Módulos
+# Casos Bloqueados pela Aplicação
 
-- 💳 Checkout
-- 🔌 API Testing
+## Produtos (Administrador)
 
-### Não automatizados devido a limitações da aplicação
+* ⚠️ CT-024 – Busca de produtos inexistente na área administrativa
+* ⚠️ CT-025 – Visualização de detalhes de produto inexistente
+* ⚠️ CT-026 – Editar produto
+* ⚠️ CT-027 – Persistência da edição
 
-- ⚠️ CT-024 - Localizar produto através da busca (funcionalidade inexistente)
-- ⚠️ CT-025 - Exibir detalhes do produto cadastrado (funcionalidade inexistente)
-- ⚠️ CT-026 - Editar produto com sucesso (botão Editar não funciona)
-- ⚠️ CT-027 - Refletir alterações após edição do produto (dependente da funcionalidade de edição)
+## Usuários (Administrador)
 
-### Próximos Módulos
-- 💳 Checkout
-- 🔌 API Testing
+* ⚠️ CT-040 – Editar usuário
+* ⚠️ CT-041 – Validação de email duplicado na edição
+* ⚠️ CT-042 – Cancelar edição
 
-## Custom Commands
+## Usuário Comum
 
-| Comando                              | Finalidade |
-| ------------------------------------ | ---------- |
-| `cy.login(email, senha)`             | Centraliza o fluxo de autenticação de usuários |
-| `cy.logout()`                        | Centraliza o fluxo de encerramento de sessão |
-| `cy.acessarCadastroProdutos()`       | Navega até a tela de cadastro de produtos |
-| `cy.cadastrarProduto(produto)`       | Executa o preenchimento e envio do formulário de cadastro de produtos |
+* ⚠️ CT-058 – Usuário comum consegue acessar listagem de usuários administrativos (BUG-006)
+* ⚠️ CT-059 – Usuário comum consegue excluir outros usuários (BUG-007)
 
-## Estrutura dos Arquivos
+---
 
-| Arquivo | Descrição |
-|----------|----------|
-| login.cy.js | Testes automatizados do módulo de autenticação |
-| produtos.cy.js | Testes automatizados do módulo de produtos |
-| usuarios.json | Massa de dados dos testes de autenticação |
-| produtos.json | Massa de dados dos testes de produtos |
-| commands.js | Custom Commands reutilizáveis |
-| cypress.config.js | Configuração principal do Cypress |
-| bug-report.md | Registro dos defeitos encontrados |
+# Bugs Documentados
 
-## Como Executar
+| Bug        | Descrição                                                                                 |
+| ---------- | ----------------------------------------------------------------------------------------- |
+| 🐞 BUG-001 | Botão **Editar Produto** não executa nenhuma ação                                         |
+| 🐞 BUG-002 | Funcionalidade de busca de produtos inexistente na área administrativa                    |
+| 🐞 BUG-003 | Funcionalidade de visualização de detalhes de produtos inexistente na área administrativa |
+| 🐞 BUG-004 | Botão **Editar Usuário** não executa nenhuma ação                                         |
+| 🐞 BUG-005 | Primeiro clique no botão **Excluir** não executa nenhuma ação                             |
+| 🐞 BUG-006 | Usuário comum consegue acessar a listagem de usuários administrativos                     |
+| 🐞 BUG-007 | Usuário comum consegue excluir outros usuários                                            |
+
+---
+
+# Próximos Módulos
+
+* Usuário Comum
+* Carrinho de Compras
+* Checkout
+* API Testing
+* CI/CD
+* Relatórios Automatizados
+
+---
+
+# Como Executar
+
+Instale as dependências:
 
 ```bash
 npm install
+```
+
+Executar em modo interativo:
+
+```bash
 npx cypress open
 ```
 
-## Autor
+Executar em modo headless:
 
-Jorge Eduardo Rodrigues
+```bash
+npx cypress run
+```
+
+---
+
+# Autor
+
+**Jorge Eduardo Rodrigues**
+
