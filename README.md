@@ -119,20 +119,26 @@ qa-automation-portfolio/
 e2e/
 ├── login.cy.js
 ├── produtos.cy.js
-├── carrinho.cy.js
-├── checkout.cy.js
-└── api-produtos.cy.js
+├── usuarios.cy.js
+├── api-produtos.cy.js
+└── api-usuarios.cy.js
 
 fixtures/
 ├── usuarios.json
-├── produtos.json
-└── carrinho.json
+└── produtos.json
 
 docs/
+├── matriz-testes-login.md
 ├── matriz-testes-produtos.md
-├── matriz-testes-carrinho.md
-└── matriz-testes-checkout.md
+├── matriz-testes-usuarios.md
+└── bug-report.md
 ```
+
+Próximos módulos:
+
+- API Testing
+- CI/CD
+- Relatórios Automatizados
 
 ## Status Atual
 
@@ -140,19 +146,47 @@ docs/
 
 - ✅ Módulo de Autenticação
 - ✅ Módulo de Produtos
+- ✅ Mapeamento do Módulo de Usuários
 - ✅ 20 Casos de Teste Automatizados
+- ✅ Casos de Teste para Usuários Documentados
 - ✅ Custom Commands
 - ✅ Massa de Dados (Fixtures)
 - ✅ Matriz de Casos de Teste - Produtos
+- ✅ Matriz de Casos de Teste - Usuários
 - ✅ Documentação de Bugs Encontrados
 - ✅ Controle de Acesso por Autenticação
 - ✅ Validações Positivas e Negativas
 - ✅ Estrutura Escalável para Novos Módulos
+- ✅ Versionamento com Releases GitHub (v1.0.0 e v1.1.0)
 
-### Em andamento
+### Em Desenvolvimento
 
-- 🔄 Módulo de Carrinho
-- 🔄 Módulo de Checkout
+- 🔄 Automação E2E - Usuários
+- 🔄 Expansão da Cobertura de Testes
+- 🔄 Evolução da Documentação Técnica
+
+### Não Automatizados devido a limitações da aplicação
+
+- ⚠️ CT-024 - Localizar produto através da busca (funcionalidade inexistente)
+- ⚠️ CT-025 - Exibir detalhes do produto cadastrado (funcionalidade inexistente)
+- ⚠️ CT-026 - Editar produto com sucesso (botão Editar não funciona)
+- ⚠️ CT-027 - Refletir alterações após edição do produto (dependente da funcionalidade de edição)
+- ⚠️ Editar usuário (botão Editar não executa ação)
+- ⚠️ Busca de usuários (funcionalidade inexistente)
+
+### Bugs Documentados
+
+- 🐞 BUG-001 - Botão Editar Produto não executa ação
+- 🐞 BUG-002 - Busca de Produtos inexistente
+- 🐞 BUG-003 - Visualização de detalhes do produto inexistente
+- 🐞 BUG-004 - Botão Editar Usuário não executa ação
+- 🐞 BUG-005 - Busca de Usuários inexistente
+- 🐞 BUG-006 - Primeiro usuário da lista não pode ser excluído
+
+### Próximos Módulos
+
+- 💳 Checkout
+- 🔌 API Testing
 
 ### Não automatizados devido a limitações da aplicação
 
@@ -161,11 +195,7 @@ docs/
 - ⚠️ CT-026 - Editar produto com sucesso (botão Editar não funciona)
 - ⚠️ CT-027 - Refletir alterações após edição do produto (dependente da funcionalidade de edição)
 
-### Em Desenvolvimento
-- 🔄 Automação E2E - Produtos
-
 ### Próximos Módulos
-- 🛒 Carrinho
 - 💳 Checkout
 - 🔌 API Testing
 

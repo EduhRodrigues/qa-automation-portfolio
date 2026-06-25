@@ -35,7 +35,15 @@
   },
 
   "usuarioAdmin": {
-    "email": "teste.qa.admin@gmail.com",
-    "senha": "senha_teste_admin"
+    "nome": "Usuario Admin",
+    "email": "usuario.admin@gmail.com",
+    "senha": "senha_admin"
+  },
+
+  "usuarioComum": {
+    "nome": "Usuario Comum",
+    "email": "usuario.comum@gmail.com",
+    "senha": "senha_comum"
   }
 }
+
