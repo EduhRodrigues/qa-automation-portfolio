@@ -1,32 +1,46 @@
 describe('Login', () => {
 
-  it('CT-001 - Deve realizar login com sucesso', () => {
-
-    cy.fixture('usuarios').then((usuarios) => {
-
-      const usuario = usuarios.usuarioValido
+  beforeEach(() => {
 
     cy.visit('https://front.serverest.dev/login')
 
     cy.get('[data-testid="email"]')
-    .should('be.visible')
-    .type(usuario.email)
+      .should('be.visible')
 
     cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    .type(usuario.senha)
+      .should('be.visible')
 
-    cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
-    
-    cy.url()
+  })
+
+  // =====================================================
+  // CT-001
+  // Deve realizar login com sucesso
+  // =====================================================
+
+  it('CT-001 - Deve realizar login com sucesso', () => {
+
+    cy.criarUsuarioAPI('usuarioLogin')
+
+cy.get('@usuarioLogin').then((usuario) => {
+
+  cy.login(
+    usuario.email,
+    usuario.senha
+  )
+
+  cy.url()
     .should('include', '/home')
 
-    cy.contains('Serverest Store')
+  cy.contains('Serverest Store')
     .should('be.visible')
-   })
+    })
+
   })
+
+  // =====================================================
+  // CT-002
+  // Deve exibir mensagem de erro ao informar senha inválida
+  // =====================================================
 
   it('CT-002 - Deve exibir mensagem de erro ao informar senha inválida', () => {
 
@@ -34,113 +48,121 @@ describe('Login', () => {
 
       const usuario = usuarios.usuarioSenhaInvalida
 
-    cy.visit('https://front.serverest.dev/login')
+      cy.get('[data-testid="email"]')
+        .type(usuario.email)
 
-    cy.get('[data-testid="email"]')
-    .should('be.visible')
-    .type(usuario.email)
+      cy.get('[data-testid="senha"]')
+        .type(usuario.senha)
 
-    cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    .type(usuario.senha)
+      cy.get('[data-testid="entrar"]')
+        .click()
 
-    cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
+      cy.url()
+        .should('include', '/login')
 
-    cy.url()
-    .should('include', '/login')
+      cy.get('.alert')
+        .should('be.visible')
+        .and('contain.text', 'Email e/ou senha inválidos')
 
-    cy.get('.alert')
-    .should('be.visible')
-    .should('contain.text', 'Email e/ou senha inválidos')
-   })
+    })
+
   })
-   
-   it('CT-003 - Deve exibir mensagem de erro ao informar email inválido', () => {
+
+  // =====================================================
+  // CT-003
+  // Deve exibir mensagem de erro ao informar email inválido
+  // =====================================================
+
+  it('CT-003 - Deve exibir mensagem de erro ao informar email inválido', () => {
 
     cy.fixture('usuarios').then((usuarios) => {
 
       const usuario = usuarios.usuarioEmailInvalido
 
-    cy.visit('https://front.serverest.dev/login')
+      cy.get('[data-testid="email"]')
+        .type(usuario.email)
 
-    cy.get('[data-testid="email"]')
-    .should('be.visible')
-    .type(usuario.email)
+      cy.get('[data-testid="senha"]')
+        .type(usuario.senha)
 
-    cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    .type(usuario.senha)
+      cy.get('[data-testid="entrar"]')
+        .click()
 
-    cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
+      cy.url()
+        .should('include', '/login')
 
-    cy.url()
-    .should('include', '/login')
+      cy.get('.alert')
+        .should('be.visible')
+        .and('contain.text', 'Email e/ou senha inválidos')
 
-    cy.get('.alert')
-    .should('be.visible')
-    .should('contain.text', 'Email e/ou senha inválidos')
-   })
+    })
+
   })
+
+  // =====================================================
+  // CT-004
+  // Deve exibir mensagem de erro ao informar email e senha
+  // inválidos
+  // =====================================================
+
   it('CT-004 - Deve exibir mensagem de erro ao informar email e senha inválidos', () => {
 
     cy.fixture('usuarios').then((usuarios) => {
 
       const usuario = usuarios.usuarioInvalido
 
-    cy.visit('https://front.serverest.dev/login')
+      cy.get('[data-testid="email"]')
+        .type(usuario.email)
 
-    cy.get('[data-testid="email"]')
-    .should('be.visible')
-    .type(usuario.email)
+      cy.get('[data-testid="senha"]')
+        .type(usuario.senha)
 
-    cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    .type(usuario.senha)
+      cy.get('[data-testid="entrar"]')
+        .click()
 
-    cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
+      cy.url()
+        .should('include', '/login')
 
-    cy.url()
-    .should('include', '/login')
+      cy.get('.alert')
+        .should('be.visible')
+        .and('contain.text', 'Email e/ou senha inválidos')
 
-    cy.get('.alert')
-    .should('be.visible')
-    .should('contain.text', 'Email e/ou senha inválidos')
-   })
+    })
+
   })
 
-   it('CT-005 - Deve exibir mensagem ao tentar login sem preencher email', () => {
+    // =====================================================
+  // CT-005
+  // Deve exibir mensagem ao tentar login sem preencher email
+  // =====================================================
+
+  it('CT-005 - Deve exibir mensagem ao tentar login sem preencher email', () => {
 
     cy.fixture('usuarios').then((usuarios) => {
 
       const usuario = usuarios.usuarioSemEmail
 
-    cy.visit('https://front.serverest.dev/login')
+      cy.get('[data-testid="senha"]')
+        .type(usuario.senha)
 
-    cy.get('[data-testid="email"]')
-    .should('be.visible')
+      cy.get('[data-testid="entrar"]')
+        .click()
 
-    cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    .type(usuario.senha)
+      cy.url()
+        .should('include', '/login')
 
-    cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
+      cy.get('.alert')
+        .should('be.visible')
+        .and('contain.text', 'Email é obrigatório')
 
-    cy.url()
-    .should('include', '/login')
+    })
 
-    cy.get('.alert')
-    .should('be.visible')
-    .should('contain.text', 'Email é obrigatório')
-   })
   })
+
+  // =====================================================
+  // CT-006
+  // Deve exibir mensagem ao tentar login sem preencher senha
+  // =====================================================
 
   it('CT-006 - Deve exibir mensagem ao tentar login sem preencher senha', () => {
 
@@ -148,96 +170,88 @@ describe('Login', () => {
 
       const usuario = usuarios.usuarioSemSenha
 
-    cy.visit('https://front.serverest.dev/login')
+      cy.get('[data-testid="email"]')
+        .type(usuario.email)
 
-    cy.get('[data-testid="email"]')
-    .should('be.visible')
-    .type(usuario.email)
+      cy.get('[data-testid="entrar"]')
+        .click()
 
-    cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    // .type(usuario.senha)
+      cy.url()
+        .should('include', '/login')
 
-    cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
+      cy.get('.alert')
+        .should('be.visible')
+        .and('contain.text', 'Password é obrigatório')
 
-    cy.url()
-    .should('include', '/login')
+    })
 
-    cy.get('.alert')
-    .should('be.visible')
-    .should('contain.text', 'Password é obrigatório')
-   })
   })
+
+  // =====================================================
+  // CT-007
+  // Deve exibir mensagem ao tentar login sem preencher
+  // email e senha
+  // =====================================================
 
   it('CT-007 - Deve exibir mensagem ao tentar login sem preencher email e senha', () => {
 
-    cy.fixture('usuarios').then((usuarios) => {
-
-      const usuario = usuarios.usuarioSemSenha
-
-    cy.visit('https://front.serverest.dev/login')
-
-    cy.get('[data-testid="email"]')
-    .should('be.visible')
-    // .type(usuario.email)
-
-    cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    // .type(usuario.senha)
-
     cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
+      .click()
 
     cy.url()
-    .should('include', '/login')
+      .should('include', '/login')
 
     cy.get('.alert')
-    .should('be.visible')
-    .should('contain.text', 'Email é obrigatório')
-    .should('contain.text', 'Password é obrigatório')
-   })
+      .should('be.visible')
+      .and('contain.text', 'Email é obrigatório')
+      .and('contain.text', 'Password é obrigatório')
+
   })
 
- it('CT-008 - Deve impedir login com email em formato inválido', () => {
+  // =====================================================
+  // CT-008
+  // Deve impedir login com email em formato inválido
+  // =====================================================
+
+  it('CT-008 - Deve impedir login com email em formato inválido', () => {
 
     cy.fixture('usuarios').then((usuarios) => {
 
       const usuario = usuarios.usuarioEmailFormatoInvalido
 
-    cy.visit('https://front.serverest.dev/login')
+      cy.get('[data-testid="email"]')
+        .type(usuario.email)
+        .invoke('prop', 'validationMessage')
+        .should('contain', '@')
 
-    cy.get('[data-testid="email"]')
-   .type(usuario.email)
-   .invoke('prop', 'validationMessage')
-   .should('contain', '@')
+      cy.get('[data-testid="senha"]')
+        .type(usuario.senha)
 
-    cy.get('[data-testid="senha"]')
-    .should('be.visible')
-    .type(usuario.senha)
+      cy.get('[data-testid="entrar"]')
+        .click()
 
-    cy.get('[data-testid="entrar"]')
-    .should('be.visible')
-    .click()
+      cy.url()
+        .should('include', '/login')
 
-    cy.url()
-    .should('include', '/login')
+    })
 
-   })
   })
 
- it('CT-009 - Deve realizar logout com sucesso', () => {
+    // =====================================================
+  // CT-009
+  // Deve realizar logout com sucesso
+  // =====================================================
 
-  cy.fixture('usuarios').then((usuarios) => {
+  it('CT-009 - Deve realizar logout com sucesso', () => {
 
-    const usuario = usuarios.usuarioValido
+  cy.criarUsuarioAPI('usuarioLogin')
 
-    cy.login(usuario.email, usuario.senha)
+  cy.get('@usuarioLogin').then((usuario) => {
 
-    cy.url()
-      .should('include', '/home')
+    cy.login(
+      usuario.email,
+      usuario.senha
+    )
 
     cy.logout()
 
@@ -246,17 +260,26 @@ describe('Login', () => {
 
     cy.contains('Login')
       .should('be.visible')
+
+    })
+
   })
+
+  // =====================================================
+  // CT-010
+  // Deve impedir acesso à área autenticada sem login
+  // =====================================================
+
+  it('CT-010 - Deve impedir acesso à área autenticada sem login', () => {
+
+    cy.visit('https://front.serverest.dev/home')
+
+    cy.url()
+      .should('include', '/login')
+
+    cy.contains('Login')
+      .should('be.visible')
+
   })
 
-it('CT-010 - Deve impedir acesso à área autenticada sem login', () => {
-
-  cy.visit('https://front.serverest.dev/home')
-
-  cy.url()
-    .should('include', '/login')
-
-  cy.contains('Login')
-    .should('be.visible')
-})
 })

@@ -2,14 +2,18 @@ describe('Produtos', () => {
 
  beforeEach(() => {
 
-  cy.fixture('usuarios').then(({ usuarioAdmin }) => {
+    cy.cadastrarAdministrador()
 
-    cy.login(
-      usuarioAdmin.email,
-      usuarioAdmin.senha
-    )
+    cy.get('@admin').then((admin) => {
+
+      cy.login(
+        admin.email,
+        admin.senha
+      )
+
+    })
+
   })
-})
 
   it('CT-011 - Deve cadastrar produto com sucesso', () => {
 
@@ -257,6 +261,11 @@ it('CT-023 - Deve exibir produto recém-cadastrado na listagem', () => {
 
   })
 })
+
+// CT-024 - Status: Não Executado | Motivo: Funcionalidade de busca de produtos inexistente (BUG-002)
+// CT-025 - Status: Não Executado | Motivo: Não existe tela de visualização/detalhes do produto (BUG-003)
+// CT-026 - Status: Bloqueado | Motivo: Funcionalidade Editar Produto indisponível (BUG-001)
+// CT-027 - Status: Bloqueado | Motivo: Dependente da implementação da funcionalidade de edição de produto (CT-026)
 
 it('CT-028 - Deve excluir produto com sucesso', () => {
 
