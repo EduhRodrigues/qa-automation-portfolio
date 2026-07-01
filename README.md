@@ -1,5 +1,9 @@
 # QA Automation Portfolio - ServeRest
-![Build](https://github.com/EduhRodrigues/qa-automation-portfolio/actions/workflows/cypress.yml/badge.svg)
+
+![Cypress](https://img.shields.io/badge/Cypress-14.x-69D3A7?logo=cypress&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-22.x-339933?logo=node.js&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-Portfolio-181717?logo=github)
 
 > Projeto de Automação de Testes End-to-End utilizando **Cypress** com foco em boas práticas de Engenharia de Qualidade, documentação técnica, rastreabilidade de requisitos e identificação de defeitos.
 
